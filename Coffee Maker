@@ -1,0 +1,89 @@
+#include <stdio.h>
+
+#define ESPRESSO_BEANS 8
+#define ESPRESSO_WATER 30
+#define ESPRESSO_MILK 0
+#define ESPRESSO_CHOCOSYRUP 0
+#define ESPRESSO_PRICE 3.5
+
+#define CAPPUCCINO_BEANS 8
+#define CAPPUCCINO_WATER 30
+#define CAPPUCCINO_MILK 70
+#define CAPPUCCINO_CHOCOSYRUP 0
+#define CAPPUCCINO_PRICE 4.5
+
+#define MOCHA_BEANS 8
+#define MOCHA_WATER 39
+#define MOCHA_MILK 160
+#define MOCHA_CHOCOSYRUP 30
+#define MOCHA_PRICE 5.5
+
+#define ADMIN_PASSWORD "ahmed"
+#define min_BEANS 8
+#define min_WATER 39
+#define min_MILK 160
+#define min_CHOCOSYRUP 30
+
+double total_revenue = 0.0;
+int beans_quantity = 100; 
+int water_quantity = 500;
+int milk_quantity = 200;
+int chocosyrup_quantity = 100;
+
+int coffeechoice()
+{ int coffeetype;
+  printf("What is your choice of coffee?");
+  printf("1 -- Espresso");
+  printf("2 -- Cappuccino");
+  printf("3 -- Mocha");
+   scanf("%d",&coffeetype);
+
+   return coffeetype;
+}
+
+void orderingcoffee(int coffeetype)
+{
+    if (coffeechoice == 1){
+        if (beans_quantity >= ESPRESSO_BEANS & water_quantity >= ESPRESSO_WATER) {
+            beans_quantity -= ESPRESSO_BEANS;
+            water_quantity -= ESPRESSO_WATER;
+            total_revenue += ESPRESSO_PRICE;
+            printf("Your Espresso has been ordered. Total Price of %.2f AED\n",total_revenue);
+
+        }else {
+            printf("Sorry the machine cant make an espresso right now \n");
+        }
+
+    }}
+
+int orderingcoffee(int coffeetype)
+{
+    if (coffeechoice == 2){
+        if (beans_quantity >= CAPPUCCINO_BEANS & water_quantity >= CAPPUCCINO_WATER & milk_quantity >= CAPPUCCINO_MILK) {
+            beans_quantity -= ESPRESSO_BEANS;
+            water_quantity -= ESPRESSO_WATER;
+            milk_quantity -= CAPPUCCINO_MILK;
+            total_revenue += CAPPUCCINO_PRICE;
+            printf("Your Cappuccino has been ordred. Total price of %.2f AED\n",total_revenue);
+
+        } else { printf(" Sorry the machine cant make an espresso right now \n");
+
+        }
+    }
+
+
+} 
+else if (coffeechoice == 3){ 
+    if (beans_quantity >= MOCHA_BEANS & water_quantity >= MOCHA_WATER & milk_quantity >= MOCHA_MILK & chocosyrup_quantity >= MOCHA_CHOCOSYRUP) {
+         beans_quantity -= MOCHA_BEANS;
+         water_quantity -= MOCHA_WATER;
+         milk_quantity -= MOCHA_MILK;
+         chocosyrup_quantity -= MOCHA_CHOCOSYRUP;
+         total_revenue += MOCHA_PRICE;
+         printf("Your Mocha has been ordred. Total price if %.2f AED\n",total_revenue);
+
+    }     } else { prinf("Sorry the machine cant make a mocha right now \n");
+
+
+ }
+
