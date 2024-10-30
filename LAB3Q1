@@ -1,0 +1,97 @@
+#include<stdio.h> 
+#include <stdbool.h> 
+#define SIZE 24
+#define nRows 8
+#define nCols 3
+// PROTOTYPES
+void print_array(int array[], int length);
+void print_matrix(int mat[][nCols], int rows);
+bool isValid(int arr[], int length, int pos);
+void remove_element(int arr[],int length, int pos);
+
+
+
+int main()
+{
+int arr[SIZE];
+int arr2d[nRows][nCols];
+print_matrix(arr2d,nRows);
+
+print_array(arr,SIZE);
+
+IsValid(arr,SIZE,3);
+
+//Call to different functions
+} 
+
+void print_array(int array[], int length){
+   for(int i=0;i<length; i++)
+      printf("array[%d]= %d\n", i, array[i]);
+}
+
+void print_matrix(int mat[][nCols], int rows){
+   for(int i=0;i<rows; i++){
+    for(int j=0;j<nCols; j++)
+         printf("mat[%d][%d]= %d\n", i,j, mat[i][j]);
+    puts("");     
+   }     
+}
+
+bool isValid(int arr[],int length, int pos) {
+   return (pos >= 0 && pos < length);
+}
+
+#include<stdio.h> 
+#include <stdbool.h> 
+#define SIZE 24
+#define nRows 8
+#define nCols 3
+// PROTOTYPES
+void print_array(int array[], int length);
+void print_matrix(int mat[][nCols], int rows);
+bool isValid(int arr[], int length, int pos);
+void remove_element(int arr[],int length, int pos);
+
+
+
+int main()
+{
+int arr[SIZE];
+int arr2d[nRows][nCols];
+print_matrix(arr2d,nRows);
+
+print_array(arr,SIZE);
+
+IsValid(arr,SIZE,nRows);
+
+//Call to different functions
+} 
+
+void print_array(int array[], int length){
+   for(int i=0;i<length; i++)
+      printf("array[%d]= %d\n", i, array[i]);
+}
+
+void print_matrix(int mat[][nCols], int rows){
+   for(int i=0;i<rows; i++){
+    for(int j=0;j<nCols; j++)
+         printf("mat[%d][%d]= %d\n", i,j, mat[i][j]);
+    puts("");     
+   }     
+}
+
+bool isValid(int arr[],int length, int pos) {
+   return (pos >= 0 && pos < length);
+}
+
+void remove_element(int arr[], int length, int pos) {
+    if (!isValid(arr, length, pos)) {  
+        printf("Error: Index is out of bounds.\n", pos);
+        return;
+    }
+
+    /
+    for (int i = pos; i < length - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+}
