@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+#define INITIAL_MONEY 1000
+#define TRANSACTIONS_COUNTER 100
+
+void TransactionProcessor(int transactions[], int num_transactions) {
+    int money = INITIAL_MONEY;
+    int tobeprocessed[TRANSACTIONS_COUNTER];
+    int tobeprocessed_count = 0;
+
+    for (int i = 0; i < num_transactions; i++) {
+        int transaction = transactions[i];
+
+        if (transaction < 0 && money + transaction < 0) {
+            printf("Transaction %d (Withdrawal of %d) is invalid because of insufficient funds. \n", i + 1, -transaction);
+            tobeprocessed[tobeprocessed_count++] = transaction;
+            continue; // not sure of this come back to it
+        }
+        // adding balance 
+        if (money == 0) {
+            printf("Your balance is now 0 stopping further transactions ")
+            for ( int j = i + 1; j < num_transactions; j++) {
+                tobeprocessed[tobeprocessed_count++] = transactions[j];
+
+            }
+            break; // come back to it not sure
+        
+        }
+    }
+    printf("The final balance is %d AED\n" , money);
+
+    printf("Unprocessed transactions: ");
+    if (tobeprocessed == 0) {
+        printf("No Unprocessed Transactions\n");
+    } else {
+        for (int i = 0; i < tobeprocessed_count; i++) {
+            printf("%d ", tobeprocessed[i]);
+        }
+        printf("\n");
+    }
+
+}
+
+int main() {
+    int transactions[] = {200,-150,500,-400,-50,-200,300};
+    int num_transactions = 7;
+    processTransactions(transactions, num_transactions);
+
+    return 0;
+}
+
